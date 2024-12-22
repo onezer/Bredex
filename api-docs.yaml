@@ -1,0 +1,196 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:9000
+  description: Generated server url
+paths:
+  /auth/signup:
+    post:
+      tags:
+      - auth-controller
+      summary: "Signs the user up, with given credentials in the request body"
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegistrationDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /auth/logout:
+    post:
+      tags:
+      - auth-controller
+      summary: Logs out the user
+      operationId: logout
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /auth/login:
+    post:
+      tags:
+      - auth-controller
+      summary: Attempts to log in the user with the given credentials in the request
+        body
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserLoginDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /ad:
+    post:
+      tags:
+      - ad-controller
+      summary: Posts a used car ad for the user with the given information in the
+        request body
+      operationId: postAd
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdRegistrationDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /auth/refresh-token:
+    get:
+      tags:
+      - auth-controller
+      summary: Creates new tokens for the user if the refresh token is valid
+      operationId: refresh
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /ad/{id}:
+    get:
+      tags:
+      - ad-controller
+      summary: Returns the ad with the given id
+      operationId: getAd
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    delete:
+      tags:
+      - ad-controller
+      summary: "Deletes the ad with the given id, if it belongs to the user"
+      operationId: deleteAd
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /ad/search:
+    get:
+      tags:
+      - ad-controller
+      summary: Returns a list of links that matches the search terms in the request
+        body
+      operationId: search
+      parameters:
+      - name: searchDTO
+        in: query
+        required: true
+        schema:
+          $ref: "#/components/schemas/SearchDTO"
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    UserRegistrationDTO:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+    UserLoginDTO:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    AdRegistrationDTO:
+      type: object
+      properties:
+        brand:
+          type: string
+        model:
+          type: string
+        description:
+          type: string
+        price:
+          type: string
+    SearchDTO:
+      type: object
+      properties:
+        model:
+          type: string
+        brand:
+          type: string
+        price:
+          type: string

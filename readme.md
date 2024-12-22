@@ -98,7 +98,7 @@ So the following formats are also valid:
 The search works with partial `brand` and `model` matches. The `price` narrows it down to with a less or equal relation
 to the cars' price.
 With the search the clients receives a list of the matching results.
-The results are in the following format:
+The results are the URLs in the following format:
 ```json
 [
     "http://localhost:9000/ad/1",
@@ -121,6 +121,18 @@ The application logs in the database the user logins and logouts with a timestam
 at the token validation if the user's last action was not a logout one.
 The application also stores the issued tokens, so when a user logs out or gets new tokens, it deletes the old ones from
 the database. It also checks at token validation if the token is stored in the database.
+Also, the application starts with some initial data in the database.
+
+## Configuration
+The app can be configured in the `application.properties` file.
+
+The following can be configured:
+ - `security.jwt.secret-key`: A base64-encoded HMAC hash string of 256 bits used for signing tokens.
+ - `security.jwt.access-token-expiration`: Specifies the access token's expiration time in milliseconds. Default: 1 hour.
+ - `security.jwt.refresh-token-expiration`: Specifies the refresh token's expiration time in milliseconds. Default: 2 hours.
+ - `spring.datasource.url`: The database connection URL. The default is an in-memory H2 database. Ensure the selected database supports sequential ID generation.
+ - `spring.datasource.driverClassName`: The driver class name for the database.
+ - `service.base-url`: The base URL where the application can be accessed.
 
 ## Features to be implemented to be a complete application
 ### User account deletion
