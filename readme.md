@@ -43,14 +43,14 @@ It is important to note that the refresh token is only usable for the `/auth/ref
 endpoint with a `Http GET` request.
 The access token is valid for 1 hour, the refresh token is valid for 2 hours.
 
-## User token refresh
+### User token refresh
 At the `/auth/refresh-token` endpoint with a valid refresh token the client can get new tokens similarly 
 to the login one.
 But with only a valid, not expired refresh token. After getting new tokens, the old ones become unusable.
-## User logout
+### User logout
 The client can log out with a valid access token at the `/auth/logout` endpoint with a `Http POST` request. Logging out
 makes the user's tokens invalid.
-## Ad posting
+### Ad posting
 With a valid access token the user can post an ad for a car at the `/ad`  with a `Http POST` request.
 The request body must contain the following JSON format:
 ```json
@@ -69,7 +69,7 @@ The request body must contain the following JSON format:
 
 After a successful posting the client gets back the id of the ad.
 
-## Ad searching
+### Ad searching
 A client can search for ads at the `/ad/search` endpoint with a `Http GET` request. The request body must contain the 
 following JSON:
 ```json
@@ -113,10 +113,10 @@ The results are the URLs in the following format:
     "http://localhost:9000/ad/10"
 ]
 ```
-## Ad deleting
+### Ad deleting
 A user can delete their posted ads with the `/ad/{id}` endpoint with an `Http DELETE` request.
 
-## Other
+### Other
 The application logs in the database the user logins and logouts with a timestamp. For extra security the app checks 
 at the token validation if the user's last action was not a logout one.
 The application also stores the issued tokens, so when a user logs out or gets new tokens, it deletes the old ones from
