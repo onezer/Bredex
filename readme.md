@@ -146,7 +146,11 @@ Usually people want to see the car they intend to buy.
 There should be more details about cars (e.g. age, color) that should also be searchable.
 ### User account recovery
 It's not uncommon for people to forget the username/password. There should be options
-for password change (e.g. through e-mail or phone)
+for password change (e.g. through e-mail or phone).
 ### Two-factor authentication
 A username/password combination is still not the most secure way of authenticating. There should be an option for the user
-to use two-factor authentication (eg. e-mail, text message, 3rd party authenticator app)
+to use two-factor authentication (eg. e-mail, text message, 3rd party authenticator app).
+### User account modification
+Users should be able to change their passwords and e-mail addresses.
+### Ad modification
+Users should be able to modify their existing ads.
