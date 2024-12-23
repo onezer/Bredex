@@ -79,8 +79,7 @@ following JSON:
     "price":"100000"
 }
 ```
-With all the fields being optional.
-So the following formats are also valid:
+With all the fields being optional, the following formats are also valid:
 ```json
 {
     "brand":"Toyota",
