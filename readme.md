@@ -112,6 +112,18 @@ The results are the URLs in the following format:
     "http://localhost:9000/ad/10"
 ]
 ```
+The client can access the individual ads with a `Http GET` on the URLs above.
+The ad information is in the following format:
+```json
+{
+    "id": 2,
+    "brand": "Toyota",
+    "model": "Camry",
+    "description": "Spacious and comfortable car with excellent mileage.",
+    "price": 850000,
+    "email": "jane@gmail.com"
+}
+```
 ### Ad deleting
 A user can delete their posted ads with the `/ad/{id}` endpoint with an `Http DELETE` request.
 
