@@ -174,7 +174,7 @@ class AdControllerTest {
 
         ResponseEntity<?> response = adController.deleteAd(adId);
 
-        assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
         assertTrue(response.getBody() instanceof ErrorResponse);
     }
 }
