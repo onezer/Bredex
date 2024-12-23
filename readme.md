@@ -96,7 +96,7 @@ With all the fields being optional, the following formats are also valid:
 ```
 The search works with partial `brand` and `model` matches. The `price` narrows it down to with a less or equal relation
 to the cars' price.
-With the search the clients receives a list of the matching results.
+With the search the client receives a list of the matching results.
 The results are the URLs in the following format:
 ```json
 [
