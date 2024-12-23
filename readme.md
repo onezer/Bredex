@@ -64,7 +64,7 @@ The request body must contain the following JSON format:
 ### Field requirements:
  - **brand**: must be no more than 20 characters
  - **model**: must be no more than 20 characters
- - **description**: must be no more than 200
+ - **description**: must be no more than 200 characters
  - **price**: must only contain numbers and be maximum 10 digits
 
 After a successful posting the client gets back the id of the ad.
