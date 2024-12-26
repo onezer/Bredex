@@ -78,7 +78,7 @@ public class AuthenticationService {
             UserDTO userDTO = userDTOOptional.get();
 
             LogDTO log = new LogDTO();
-            log.setType("login");
+            log.setType("logout");
             log.setTimestamp(new Date());
             log.setUser(userDTO);
 
